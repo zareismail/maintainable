@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Nova; 
+namespace Zareismail\Maintainable\Nova; 
 
 use DateTimeInterface;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\{ID, Badge, Text, Select, Trix, DateTime, BelongsTo, MorphTo, MorphMany}; 
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Zareismail\NovaContracts\Nova\User;   
-use Zareismail\Maintenable\Maintenable;  
+use Zareismail\Maintainable\Maintainable;  
 
 class Issue extends Resource
 {  
@@ -18,7 +18,7 @@ class Issue extends Resource
      *
      * @var string
      */
-    public static $model = \Zareismail\Maintenable\Models\MaintenanceIssue::class; 
+    public static $model = \Zareismail\Maintainable\Models\MaintenanceIssue::class; 
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -32,7 +32,7 @@ class Issue extends Resource
      *
      * @var array
      */
-    public static $with = ['auth', 'category', 'maintenable', 'action'];
+    public static $with = ['auth', 'category', 'maintainable', 'action'];
 
     /**
      * The columns that should be searched.
@@ -69,14 +69,14 @@ class Issue extends Resource
                     return $request->user()->can('create', Category::newModel());
                 }), 
 
-            MorphTo::make(__('Building'), 'maintenable')
-                ->types($maintenables = Maintenable::maintenables($request)->all())
+            MorphTo::make(__('Building'), 'maintainable')
+                ->types($maintainables = Maintainable::maintainables($request)->all())
                 ->withoutTrashed()
                 ->searchable(), 
 
             Select::make(__('Risk'), 'risk')
-                ->options(Maintenable::risks())
-                ->default(Maintenable::SAFE)
+                ->options(Maintainable::risks())
+                ->default(Maintainable::SAFE)
                 ->displayUsingLabels()
                 ->hideFromIndex()
                 ->sortable(),  

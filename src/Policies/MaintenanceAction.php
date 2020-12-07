@@ -1,6 +1,6 @@
 <?php 
 
-namespace Zareismail\Maintenable\Policies;
+namespace Zareismail\Maintainable\Policies;
 
 
 class MaintenanceAction extends Policy

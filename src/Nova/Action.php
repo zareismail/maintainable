@@ -1,13 +1,13 @@
 <?php
 
-namespace Zareismail\Maintenable\Nova; 
+namespace Zareismail\Maintainable\Nova; 
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Nova; 
 use Laravel\Nova\Fields\{ID, Text, Trix, Badge, Currency, DateTime, BelongsTo, MorphTo, MorphMany};  
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Zareismail\NovaContracts\Nova\User;   
-use Zareismail\Maintenable\Maintenable;  
+use Zareismail\Maintainable\Maintainable;  
 
 class Action extends Resource
 {  
@@ -16,7 +16,7 @@ class Action extends Resource
      *
      * @var string
      */
-    public static $model = \Zareismail\Maintenable\Models\MaintenanceAction::class; 
+    public static $model = \Zareismail\Maintainable\Models\MaintenanceAction::class; 
 
     /**
      * The single value that should be used to represent the resource when being displayed.

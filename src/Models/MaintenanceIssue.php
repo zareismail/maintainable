@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Models;  
+namespace Zareismail\Maintainable\Models;  
       
 
 class MaintenanceIssue extends Model
@@ -42,11 +42,11 @@ class MaintenanceIssue extends Model
     }  
 
     /**
-     * Query the related maintenables.
+     * Query the related maintainables.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function maintenable()
+    public function maintainable()
     { 
         return $this->morphTo();
     }  

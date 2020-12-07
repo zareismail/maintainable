@@ -1,9 +1,9 @@
 <?php
 
-namespace Zareismail\Maintenable\Concerns; 
+namespace Zareismail\Maintainable\Concerns; 
 
 use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
-use Zareismail\Maintenable\Models\MaintenableReport;
+use Zareismail\Maintainable\Models\MaintainableReport;
 
 trait InteractsWithMaintenances
 { 
@@ -14,6 +14,6 @@ trait InteractsWithMaintenances
 	 */
 	public function reports(): HasOneOrMany
 	{
-		return $this->morphMany(MaintenableReport::class, 'maintenables');
+		return $this->morphMany(MaintainableReport::class, 'maintainables');
 	}
 } 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Nova;
+namespace Zareismail\Maintainable\Nova;
 
 use Illuminate\Support\Str;
 use Laravel\Nova\Http\Requests\NovaRequest;

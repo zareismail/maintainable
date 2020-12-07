@@ -1,11 +1,11 @@
 <?php
 
-namespace Zareismail\Maintenable;
+namespace Zareismail\Maintainable;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Laravel\Nova\Nova as LaravelNova; 
 
-class MaintenableServiceProvider extends ServiceProvider
+class MaintainableServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
@@ -24,8 +24,7 @@ class MaintenableServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        $this->loadJsonTranslationsFrom(__DIR__.'/../resources/lang');
+    { 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); 
         LaravelNova::serving([$this, 'servingNova']);
         $this->registerPolicies();

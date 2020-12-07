@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Nova; 
+namespace Zareismail\Maintainable\Nova; 
 
 use Illuminate\Http\Request; 
 use Laravel\Nova\Fields\{ID, Text, MorphMany};   
@@ -12,7 +12,7 @@ class Category extends Resource
      *
      * @var string
      */
-    public static $model = \Zareismail\Maintenable\Models\MaintenanceCategory::class; 
+    public static $model = \Zareismail\Maintainable\Models\MaintenanceCategory::class; 
 
     /**
      * Get the fields displayed by the resource.

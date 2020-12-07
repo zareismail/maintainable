@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Nova\Actions;
+namespace Zareismail\Maintainable\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -8,8 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Zareismail\Maintenable\Models\MaintenanceIssue;
-use Zareismail\Maintenable\Nova\Action as ActionResource;
+use Zareismail\Maintainable\Models\MaintenanceIssue;
+use Zareismail\Maintainable\Nova\Action as ActionResource;
 
 class SettleUp extends Action
 {

@@ -1,2 +1,2 @@
-# maintenable
+# maintainable
 A Laravel Nova tool

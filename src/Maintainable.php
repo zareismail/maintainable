@@ -1,11 +1,11 @@
 <?php
 
-namespace Zareismail\Maintenable;
+namespace Zareismail\Maintainable;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Nova;
 
-class Maintenable 
+class Maintainable 
 {  
     /**
      * The SAFE situation value.
@@ -36,15 +36,15 @@ class Maintenable
     public const EMERGENCY = 'emergency';
 
     /**
-     * Return Nova's Maintenable resources.
+     * Return Nova's Maintainable resources.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Laravel\Nova\ResourceCollection
      */
-    public static function maintenables(Request $request)
+    public static function maintainables(Request $request)
     {
         return Nova::authorizedResources($request)->filter(function($resource) {
-            return $resource::newModel() instanceof Contracts\Maintenable;
+            return $resource::newModel() instanceof Contracts\Maintainable;
         });
     }
 

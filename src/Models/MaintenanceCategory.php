@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Models;  
+namespace Zareismail\Maintainable\Models;  
       
 use Illuminate\Database\Eloquent\{Model, SoftDeletes}; 
 

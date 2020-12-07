@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Models;  
+namespace Zareismail\Maintainable\Models;  
       
 
 class MaintenanceAction extends Model

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Policies;
+namespace Zareismail\Maintainable\Policies;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

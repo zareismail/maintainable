@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Zareismail\Maintenable\Maintenable;
+use Zareismail\Maintainable\Maintainable;
 
 class CreateMaintenanceIssuesTable extends Migration
 {
@@ -19,8 +19,8 @@ class CreateMaintenanceIssuesTable extends Migration
             $table->auth();  
             $table->labeling('report');
             $table->text('details')->nullable(); 
-            $table->enum('risk', array_keys(Maintenable::risks()))->default(Maintenable::SAFE); 
-            $table->morphs('maintenable');     
+            $table->enum('risk', array_keys(Maintainable::risks()))->default(Maintainable::SAFE); 
+            $table->morphs('maintainable');     
             $table->foreignId('category_id')->constrained('maintenance_categories');     
             $table->timestamps();
             $table->softDeletes(); 

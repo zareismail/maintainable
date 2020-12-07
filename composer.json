@@ -1,5 +1,5 @@
 {
-    "name": "zareismail/maintenable",
+    "name": "zareismail/maintainable",
     "description": "A Laravel Nova tool for the Hafiz package.",
     "keywords": [
         "laravel",
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Zareismail\\Maintenable\\": "src/"
+            "Zareismail\\Maintainable\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Zareismail\\Maintenable\\MaintenableServiceProvider"
+                "Zareismail\\Maintainable\\MaintainableServiceProvider"
             ]
         }
     },

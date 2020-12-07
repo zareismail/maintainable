@@ -1,6 +1,6 @@
 <?php
 
-namespace Zareismail\Maintenable\Models;  
+namespace Zareismail\Maintainable\Models;  
      
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zareismail\NovaContracts\Models\AuthorizableModel;
