@@ -6,9 +6,11 @@ use DateTimeInterface;
 use Illuminate\Http\Request;
 use Laravel\Nova\Nova; 
 use Laravel\Nova\Panel; 
-use Laravel\Nova\Fields\{ID, Badge, Text, Select, Trix, DateTime, BelongsTo, MorphTo, MorphMany}; 
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\{ID, Badge, Text, Select, Trix, DateTime, BelongsTo, MorphMany}; 
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Zareismail\NovaContracts\Nova\User;   
+use Zareismail\Fields\MorphTo;   
 use Zareismail\Maintainable\Maintainable;  
 
 class Issue extends Resource
@@ -71,8 +73,7 @@ class Issue extends Resource
 
             MorphTo::make(__('Building'), 'maintainable')
                 ->types($maintainables = Maintainable::maintainables($request)->all())
-                ->withoutTrashed()
-                ->searchable(), 
+                ->withoutTrashed(), 
 
             Select::make(__('Risk'), 'risk')
                 ->options(Maintainable::risks())
@@ -154,5 +155,19 @@ class Issue extends Resource
                     return $request->user()->can('create', Action::newModel()) && ! $this->confirmed();
                 }),
         ];
+    }
+
+    /**
+     * Build a "relatable" query for the given resource.
+     *
+     * This query determines which instances of the model may be attached to other resources.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function relatableMaintenanceCategories(NovaRequest $request, $query)
+    {
+        return parent::relatableQuery($request, $query)->whereDoesntHave('categories');
     }
 }
