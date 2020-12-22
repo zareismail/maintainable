@@ -26,6 +26,7 @@ class AddCategoryIdToMaintenanceCategoriesTable extends Migration
     public function down()
     {
         Schema::table('maintenance_categories', function (Blueprint $table) { 
+            $table->dropForeign('maintenance_categories_category_id_foreign');  
             $table->dropColumn('category_id'); 
         });
     }
