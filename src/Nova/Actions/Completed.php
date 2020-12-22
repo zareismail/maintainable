@@ -33,7 +33,9 @@ class Completed extends Action
             'completed_at' => now(),
         ])->save();
 
-        $action->addMedia($fields->image)->toMediaCollection('image')->save();
+        if(! is_null($fields->image)) { 
+            $action->addMedia($fields->image)->toMediaCollection('image')->save();
+        }
 
         $uriKey = ActionResource::uriKey();
 
