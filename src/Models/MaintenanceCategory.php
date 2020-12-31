@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class MaintenanceCategory extends Model
 {      
+    use SoftDeletes;
+    
     /**
      * Query the related Letters.
      * 
