@@ -44,4 +44,36 @@ class MaintenanceAction extends Model
     {
         return $this->exists && ! $this->isCompleted();
     }
+
+    /**
+     * Query where "completed at" not null.
+     * 
+     * @param  \Illuminate\Database\Elqoemt\Builder $query 
+     * @return \Illuminate\Database\Elqoemt\Builder        
+     */
+    public function scopeCompleted($query)
+    {
+        return $query->whereNotNull($this->getQualifiedCompletedAtColumn());
+    }
+
+    /**
+     * Query where "completed at" not null.
+     * 
+     * @param  \Illuminate\Database\Elqoemt\Builder $query 
+     * @return \Illuminate\Database\Elqoemt\Builder        
+     */
+    public function scopeProgressing($query)
+    {
+        return $query->whereNull($this->getQualifiedCompletedAtColumn());
+    }
+
+    /**
+     * Returns "completed at" column qulified for query.
+     * 
+     * @return string
+     */
+    public function getQualifiedCompletedAtColumn()
+    {
+        return $query->qualifyColumn('completed_at');
+    }
 }
