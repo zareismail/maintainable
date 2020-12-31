@@ -50,4 +50,19 @@ class Category extends Resource
     {
         return parent::relatableQuery($request, $query)->whereKeyNot($request->resourceId);
     }
+
+    /**
+     * Get the cards available on the entity.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function cards(Request $request)
+    {
+        return [
+            Metrics\Issues::make()->onlyOnDetail()->width('1/2'), 
+
+            Metrics\Actions::make()->onlyOnDetail()->width('1/2'), 
+        ];
+    }
 }
