@@ -74,6 +74,6 @@ class ActionsPerDay extends Trend
      */
     public function uriKey()
     {
-        return 'actions-per-day';
+        return 'maintainable-actions-per-day';
     }
 }
