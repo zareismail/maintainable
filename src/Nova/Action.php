@@ -116,4 +116,21 @@ class Action extends Resource
                 }),
         ];
     }
+
+    /**
+     * Get the cards available on the entity.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function cards(Request $request)
+    {
+        return [
+            Metrics\Costs::make(), 
+
+            Metrics\Revenues::make(), 
+            
+            Metrics\ActionsPerDay::make(), 
+        ];
+    }
 }
