@@ -13,10 +13,18 @@ class MaintenanceCategory extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Issues()
+    public function issues()
     { 
         return $this->hasMany(MaintenanceIssue::class, 'category_id');
     }  
+    
+    /**
+     * Get all of the actions for the project.
+     */
+    public function actions()
+    {
+        return $this->hasManyThrough(MaintenanceAction::class, MaintenanceIssue::class, 'category_id', 'issue_id');
+    }
 
     /**
      * Query the related category.
