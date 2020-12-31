@@ -158,6 +158,23 @@ class Issue extends Resource
     }
 
     /**
+     * Get the cards available on the entity.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function cards(Request $request)
+    {
+        return [
+            Metrics\IssuesPerCategory::make(),
+
+            Metrics\IssuesPerProperty::make(),
+            
+            Metrics\IssuesPerRisk::make(),
+        ];
+    }
+
+    /**
      * Build a "relatable" query for the given resource.
      *
      * This query determines which instances of the model may be attached to other resources.
