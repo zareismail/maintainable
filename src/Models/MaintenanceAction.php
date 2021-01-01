@@ -74,6 +74,6 @@ class MaintenanceAction extends Model
      */
     public function getQualifiedCompletedAtColumn()
     {
-        return $query->qualifyColumn('completed_at');
+        return $this->qualifyColumn('completed_at');
     }
 }
