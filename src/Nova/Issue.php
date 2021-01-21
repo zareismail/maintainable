@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Nova; 
 use Laravel\Nova\Panel; 
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\{ID, Badge, Text, Select, Trix, DateTime, BelongsTo, MorphMany}; 
+use Laravel\Nova\Fields\{ID, Badge, Text, Number, Select, Trix, DateTime, BelongsTo, MorphMany}; 
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Zareismail\NovaContracts\Nova\User;   
 use Zareismail\Fields\MorphTo;   
@@ -95,6 +95,11 @@ class Issue extends Resource
             ]),
 
             Text::make(__('Report'), 'report')
+                ->required()
+                ->rules('required'),
+
+            Number::make(__('Floor'), 'floor')
+                ->default(0)
                 ->required()
                 ->rules('required'),
 
