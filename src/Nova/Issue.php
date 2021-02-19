@@ -118,10 +118,17 @@ class Issue extends Resource
                 ->nullable()
                 ->rules('max:3'),    
  
-            $this->when($request->isResourceDetailRequest() && $this->confirmed(), function() use ($request) {
+            $this->when($this->canSeeConfirmDetails($request), function() use ($request) {
                 return new Panel(__('Setteling'), $this->confirmDetails($request));
             }), 
     	];
+    }
+
+    public function canSeeConfirmDetails($request)
+    {
+        return  $request->route('uriKey') == static::uriKey() &&
+                $request->isResourceDetailRequest() && 
+                $this->confirmed();
     }
 
     public function confirmed()
