@@ -49,6 +49,18 @@ class Maintainable
     }
 
     /**
+     * Return Nova's Maintainable models.
+     *
+     * @return array
+     */
+    public static function morphs()
+    {
+        return static::maintainables(app('request'))->map(function($resource) {
+            return $resource::$model;
+        });
+    }
+
+    /**
      * Return risk situations.
      * 
      * @return array
