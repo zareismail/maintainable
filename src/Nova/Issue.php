@@ -164,7 +164,7 @@ class Issue extends Resource
                 ->confirmText(__('Are you sure you want to solve this issue?'))
                 ->confirmButtonText(__('Yes'))
                 ->canSee(function($request) {
-                    return $request->user()->can('create', Action::newModel()) && ! $this->confirmed();
+                    return $request->user()->can('settleUp', $this->resource) && ! $this->confirmed();
                 }),
         ];
     }
